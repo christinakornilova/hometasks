@@ -30,10 +30,11 @@ public class CalcMain {
 
         Scanner in = new Scanner(System.in);
         try {
-            //user input
+
             String s1, operation;
             double res;
 
+            //user input
             do {
                 System.out.println("Input first operand (only decimal):");
                 s1 = in.next();
