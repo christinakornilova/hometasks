@@ -142,6 +142,7 @@ public class GeometryMainClass {
             } while (!s.equals("1") && !s.equals("2") && !s.equals("3"));
 
             //what to draw
+            //
             switch (s){
                 case "1":
                     drawRectangle();
