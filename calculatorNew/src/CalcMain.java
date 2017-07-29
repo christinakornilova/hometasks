@@ -1,6 +1,12 @@
+/*
+0. Новое требование от заказчика калькулятора - переделать калькулятор, чтобы при неправильном вводе чисел программа запрашивала
+число заново и пользователь вводил операцию (+-* /)
+*/
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Scanner;
+
 
 public class CalcMain {
 
