@@ -1,3 +1,7 @@
+/*
+7. Ввести число, определить каким числам оно кратно.
+ */
+
 import java.util.Scanner;
 
 public class MultiplicityMainClass {
@@ -28,13 +32,13 @@ public class MultiplicityMainClass {
 
         try {
             do {
-                System.out.println("Please enter number (int value, > 0): ");
+                System.out.println("Please enter number (positive int value only): ");
                 s = in.next();
             } while (!isInt(s) || !isPositive(s));
 
             if (isInt(s) && isPositive(s)) {
                 a = Integer.parseInt(s);
-                System.out.print("The number  " + a + " dividers are ");
+                System.out.print("The number  " + a + " dividers are: ");
                 for (int i = a; i > 0; i--) {
                     int b = a % i;
                     if (b == 0)

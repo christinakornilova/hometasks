@@ -1,3 +1,7 @@
+/*
+6. Ввести число, определить простое ли оно.
+ */
+
 import java.util.Scanner;
 
 public class PrimesMainClass {
@@ -50,8 +54,8 @@ public class PrimesMainClass {
 
         //check
         if (isPrime(n))
-            System.out.println(n + " is a prime number");
-        else System.out.println(n + " is not a prime number");
+            System.out.println(n + " is prime number");
+        else System.out.println(n + " is not prime number");
 
     }
 

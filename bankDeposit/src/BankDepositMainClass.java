@@ -1,3 +1,9 @@
+/*
+3. Программу, которая предлагает пользователю ввести сумму денежного вклада в гривнах, процент годовых, которые выплачивает банк,
+длительность вклада (лет).
+Вывести накопленную сумму денег за каждый год и начисленные проценты.
+ */
+
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Scanner;
@@ -26,7 +32,7 @@ public class BankDepositMainClass {
     public static void main (String[] args){
         Scanner in = new Scanner(System.in);
         String s;
-        BigDecimal i, dep, percentVal;
+        BigDecimal i, dep, percentVal, percentValTotal = new BigDecimal("0");
         int year, j1;
         double percent;
 
@@ -44,21 +50,21 @@ public class BankDepositMainClass {
             percent = new Double(s);
 
             do {
-                System.out.println("Enter deposit terms in years: ");
+                System.out.println("Enter deposit term in years: ");
                 s = in.next();
             } while (!isInt(s));
             year = new Integer(s);
 
             for (int j = 0; year > 0; j++) {
                 i = BigDecimal.valueOf(percent);
-                /*d= c.multiply(b.add(BigInteger.value.of(2))); // d=c*(b+2)*/
-                //x = x.setScale(2, BigDecimal.ROUND_HALF_UP)
                 percentVal = (dep.multiply(i)).divide(BigDecimal.valueOf(100));
-                //percentVal = percentVal.setScale(2, BigDecimal.ROUND_HALF_UP);
+                percentValTotal = percentValTotal.add(percentVal);
                 dep = dep.add((dep.multiply(i)).divide(BigDecimal.valueOf(100)));
                 j1=j+1;
                 year = year-1;
-                System.out.println("For the "+ j1 + " year you deposit value will be "+ dep.setScale(2, BigDecimal.ROUND_HALF_UP).toString()+ "UAH " + ", percents sum will be " + percentVal.setScale(2, BigDecimal.ROUND_HALF_UP).toString() + "UAH");
+                System.out.println("For the "+ j1 + " year you deposit value will be "+ dep.setScale(2, BigDecimal.ROUND_HALF_UP).toString()
+                        + " UAH" + ", percents value per year will be " + percentVal.setScale(2, BigDecimal.ROUND_HALF_UP).toString() + " UAH"
+                + ", percents value total will be " + percentValTotal.setScale(2, BigDecimal.ROUND_HALF_UP) + " UAH.");
             }
 
 

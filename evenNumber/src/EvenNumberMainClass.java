@@ -1,3 +1,7 @@
+/*
+5. Ввести число, определить четное или нет.
+ */
+
 import java.util.Scanner;
 
 public class EvenNumberMainClass {

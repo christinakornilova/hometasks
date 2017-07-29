@@ -1,3 +1,7 @@
+/*
+2. Программа, которая находит среднее арифметическое значение произвольного количества чисел.
+ */
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Scanner;
@@ -18,7 +22,7 @@ public class AvgMainClass {
             int count;
             double sum = 0;
 
-            System.out.println("Enter values, only numbers accepted. To complete entering please type any letter and press Enter. ");
+            System.out.println("Enter values, only numbers accepted. To complete entering please type any symbol and press Enter. ");
             for (count = 0; scan.hasNextDouble(); count++) {
                 sum = sum + scan.nextDouble();
             }

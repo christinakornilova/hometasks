@@ -1,7 +1,9 @@
+/*
+1. Программа, которая находит среднее арифметическое значение двух чисел.
+*/
+
 import java.util.Scanner;
-
 import java.math.BigDecimal;
-
 import java.math.RoundingMode;
 
 public class AvgMain {
@@ -58,7 +60,6 @@ public class AvgMain {
             avg = roundResult((op1 + op2)/2, 4);
 
             System.out.println("Average of " + op1 + " and " + op2 + " is " + avg);
-
 
         } catch (Exception e){
             System.err.println("Invalid entered data.");
