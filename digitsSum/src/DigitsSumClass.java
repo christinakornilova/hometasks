@@ -44,7 +44,7 @@ public class DigitsSumClass {
                     sum = sum + x % 10;
                     x = x / 10;
                 }
-                System.out.println("Digits sum of entered number " + Integer.parseInt(s) + " is " + sum);
+                System.out.println("Digits sum of " + Integer.parseInt(s) + " is " + sum);
             }
 
         } catch (Exception e) {
