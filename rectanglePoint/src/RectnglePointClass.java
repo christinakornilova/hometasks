@@ -32,7 +32,9 @@ public class RectnglePointClass {
 
 
         try {
+            System.out.println("");
             System.out.println("Specify the rectangle.");
+            System.out.println("");
             do {
                 System.out.println("Input rectangle's top left apex coordinate x");
                 s1 = in.next();
@@ -59,7 +61,9 @@ public class RectnglePointClass {
 
             }
 
+            System.out.println("");
             System.out.println("Specify point that you want to check.");
+            System.out.println("");
             do {
                 System.out.println("Input point's coordinate x");
                 s1 = in.next();
