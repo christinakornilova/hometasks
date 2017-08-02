@@ -3,83 +3,43 @@
 число заново и пользователь вводил операцию (+-* /)
 */
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.util.Scanner;
-
-
 public class CalcMain {
-
-    public static boolean isNumeric(String x)
-    {
-        return isInt(x);
-    }
-
-    public static boolean isInt(String x) throws NumberFormatException
-    {
-        try {
-            Integer.parseInt(x);
-            return true;
-        } catch(Exception e) {
-            return false;
-        }
-    }
-
-    static double roundResult (double d) {
-
-        double newDouble = new BigDecimal(d).setScale(4, RoundingMode.HALF_UP).doubleValue();
-        return newDouble;
-
-    }
 
     public static void main(String[] args) {
 
-        Scanner in = new Scanner(System.in);
         try {
 
-            String s1, operation;
-            double res;
+            String operation="";
+            double op1=0, op2=0;
 
-            //user input
-            do {
-                System.out.println("Input first operand (only decimal):");
-                s1 = in.next();
-            } while (!isInt(s1));
-            double op1 = Integer.parseInt(s1);
+            op1 = CalcInput.operandInput("first");
+            op2 = CalcInput.operandInput("second");
+            operation = CalcInput.operationInput(operation);
 
-            do {
-                System.out.println("Input second operand (only decimal):");
-                s1 = in.next();
-            } while (!isInt(s1));
-            double op2 = Integer.parseInt(s1);
-
-
-            System.out.println("Input operation (+, -, *, /, %):");
-            operation = in.next();
-
-            //calculations
-            if (operation != null && (operation.equals("+") || operation.equals("-") || operation.equals("*") || operation.equals("/") || operation.equals("%"))) {
-                if (op2 == 0 && operation.equals("/")) {
-                    System.out.println("Division by zero!");
-                } else if (op2 != 0 && operation.equals("/")) {
-                    System.out.println("Result: " + roundResult(op1 / op2));
+            switch (operation) {
+                case "+": {
+                    System.out.println("Result of addition is: " + CalcLib.addValues(op1, op2));
+                    break;
                 }
-                if (operation.equals("+")) {
-                    System.out.println("Result: " + (op1 + op2));
-                }else if (operation.equals("-")) {
-                    System.out.println("Result: " + (op1 - op2));
-                } else if (operation.equals("*")) {
-                    System.out.println("Result: " + (op1 * op2));
-                } else if (op2 == 0 && operation.equals("%")) {
-                    System.out.println("Division by zero!");
-                } else if (op2 != 0 && operation.equals("%"))
-                    System.out.println("Result: " + roundResult(op1 % op2));
-            } else System.out.println("Invalid entered data. Try to enter decimal values and use +, -, *, /, % for operation.");
+                case "-":
+                    System.out.println("Result of subtraction: " + CalcLib.subValues(op1, op2));
+                    break;
+                case "*":
+                    System.out.println("Result of multiplication: " + CalcLib.mulValues(op1, op2));
+                    break;
+                case "/":
+                    if (!CalcLib.divisionByZero(op1, op2))
+                        System.out.println("Result of division operation is: " + CalcLib.divValues(op1, op2));
+                    break;
+                case "%":
+                    if (!CalcLib.divisionByZero(op1, op2))
+                        System.out.println("Result of mod operation is: " + CalcLib.modValues(op1, op2));
+                    break;
+            }
 
         } catch (Exception e) {
             System.err.println("Invalid entered data. Try to enter decimal values as operands and use +, -, *, /, % for operation.");
         }
-        in.close();
     }
 
 
